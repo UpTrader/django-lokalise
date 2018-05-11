@@ -3,7 +3,7 @@ import re
 import shutil
 import time
 import zipfile
-from io import StringIO
+from io import BytesIO
 from io import open
 
 import requests
@@ -22,7 +22,7 @@ def hook(request):
         if r.status_code == 200:
             locale_path = get_locale_path()
 
-            f = StringIO(r.content)
+            f = BytesIO(r.content)
 
             if os.access(locale_path, os.W_OK | os.X_OK):
                 with zipfile.ZipFile(f) as zip_file:

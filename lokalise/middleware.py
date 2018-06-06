@@ -12,7 +12,7 @@ class ReloadTranslationsMiddleware(object):
         locale_mtime = getmtime(get_locale_path())
         try:
             thread_local = threading.local
-            if not hasattr(thread_locale, 'locale_mtime') or locale_mtime > thread_local.locale_mtime:
+            if not hasattr(thread_local, 'locale_mtime') or locale_mtime > thread_local.locale_mtime:
                 thread_local.locale_mtime = locale_mtime
                 reset_translations()
         except Exception as e:

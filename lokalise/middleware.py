@@ -1,7 +1,9 @@
 import threading
 from os.path import getmtime
 
+from django.utils import translation
 from django.utils.autoreload import reset_translations
+from django.utils.translation import trans_real, get_language
 
 from . import get_locale_path
 
@@ -14,6 +16,7 @@ class ReloadTranslationsMiddleware(object):
             thread_local = threading.local()
             if not hasattr(thread_local, 'locale_mtime') or locale_mtime > thread_local.locale_mtime:
                 thread_local.locale_mtime = locale_mtime
-                #reset_translations()
+                reset_translations()
+                translation.activate(get_language())
         except Exception as e:
             pass

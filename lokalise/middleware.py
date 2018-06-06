@@ -11,7 +11,7 @@ class ReloadTranslationsMiddleware(object):
     def process_request(request):
         locale_mtime = getmtime(get_locale_path())
         try:
-            thread_local = threading.local
+            thread_local = threading.local()
             if not hasattr(thread_local, 'locale_mtime') or locale_mtime > thread_local.locale_mtime:
                 thread_local.locale_mtime = locale_mtime
                 reset_translations()

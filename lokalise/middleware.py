@@ -14,6 +14,6 @@ class ReloadTranslationsMiddleware(object):
             thread_local = threading.local()
             if not hasattr(thread_local, 'locale_mtime') or locale_mtime > thread_local.locale_mtime:
                 thread_local.locale_mtime = locale_mtime
-                reset_translations()
+                #reset_translations()
         except Exception as e:
             pass

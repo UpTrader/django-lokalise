@@ -9,7 +9,6 @@
 # Copyright (c) 2016, Yar Kravtsov <yarlson@gmail.com>
 
 from setuptools import setup, find_packages
-from lokalise import __version__
 
 tests_require = [
     'mock',
@@ -27,7 +26,7 @@ tests_require = [
 
 setup(
     name='django-lokalise',
-    version=__version__,
+    version='1.1',
     description='Lokalise (https://lokalise.co) module for Django',
     long_description='''
 Lokalise (https://lokalise.co) module for Django

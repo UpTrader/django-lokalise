@@ -3,12 +3,13 @@ from os.path import getmtime
 
 from django.utils import translation
 from django.utils.autoreload import reset_translations
+from django.utils.deprecation import MiddlewareMixin
 from django.utils.translation import trans_real, get_language
 
 from . import get_locale_path
 
 
-class ReloadTranslationsMiddleware(object):
+class ReloadTranslationsMiddleware(MiddlewareMixin):
     @staticmethod
     def process_request(request):
         locale_mtime = getmtime(get_locale_path())

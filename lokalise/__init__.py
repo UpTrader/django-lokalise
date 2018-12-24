@@ -67,7 +67,7 @@ def handle_content(content):
                     source = zip_file.open(member)
                     target = open(po_file, "wb")
                     with source, target:
-                        shutil.copyfileobj(source, target)
+                        shutil.copyfileobj(source, target, -1)
 
                     compile_po(po_file)
 

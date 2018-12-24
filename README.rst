@@ -34,3 +34,15 @@ Add to your urlpatterns::
     ]
 
 Add webhook at Download section of lokali.se project such as http://example.org/lokalise/hook and use Gettext(.po) format
+
+For manual getting translation:
+
+Add to your settings::
+
+    LOKALISE_PROJECT_ID = '{project_id}'
+    # https://lokalise.co/profile#apitokens
+    LOKALISE_X_API_TOKEN = '{x-api-token}'
+
+Or set arguments in the management command::
+
+    ./manage.py get_lokalise --project_id {project_id} --token {x-api-token}

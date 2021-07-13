@@ -3,7 +3,6 @@ import os, errno
 from os.path import getmtime, exists as path_exists
 
 from django.utils import translation
-from django.utils.autoreload import reset_translations
 from django.utils.deprecation import MiddlewareMixin
 from django.utils.translation import trans_real, get_language
 
